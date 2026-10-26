@@ -194,7 +194,8 @@
     progress.value = MAX_HP;
     progress.setAttribute('aria-label', side === 'hero' ? 'Hero health' : 'Enemy health');
     const hp = add(make('div', 'battle-health'), hpCaption, progress);
-    add(figure, label, portraitWrap, name, subtitle, hp);
+    const info = add(make('div', 'battle-fighter-info'), name, subtitle, hp);
+    add(figure, label, portraitWrap, info);
     nodes[`${side}Portrait`] = portrait;
     nodes[`${side}Name`] = name;
     nodes[`${side}Subtitle`] = subtitle;
@@ -623,6 +624,7 @@
     const hero = encounterHero;
     nodes.field.dataset.scene = enemy.id;
     nodes.heroName.textContent = hero.name;
+    nodes.heroName.title = hero.name;
     nodes.heroSubtitle.textContent = classNames[hero.classId] || 'Adventurer';
     nodes.heroPortrait.src = `assets/portraits/${hero.portrait}.png`;
     nodes.heroPortrait.alt = `${nodes.heroSubtitle.textContent} ${hero.name}`;
@@ -630,6 +632,7 @@
       nodes.heroFigure.classList.toggle(`aura-${color}`, hero.color === color);
     }
     nodes.enemyName.textContent = enemy.name;
+    nodes.enemyName.title = enemy.name;
     nodes.enemySubtitle.textContent = enemy.title;
     nodes.enemyPortrait.src = `assets/portraits/${enemy.id}.png`;
     nodes.enemyPortrait.alt = enemy.name;
