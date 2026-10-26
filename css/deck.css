@@ -1,0 +1,899 @@
+.deck-heading {
+  margin-bottom: 22px;
+}
+
+.deck-heading .section-heading {
+  margin: 0 0 8px;
+  font-size: 32px;
+}
+
+.deck-intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.deck-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 24px;
+  align-items: start;
+}
+
+.deck-library {
+  min-width: 0;
+}
+
+.deck-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 14px;
+}
+
+.deck-search {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 150px;
+  flex: 1;
+  padding: 0 13px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.deck-search:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.deck-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  outline: 0;
+}
+
+.deck-search-glyph {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  margin-right: 3px;
+  border: 1.5px solid var(--muted);
+  border-radius: 50%;
+}
+
+.deck-search-glyph:after {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 1.5px;
+  bottom: -3px;
+  right: -4px;
+  background: var(--muted);
+  transform: rotate(45deg);
+}
+
+.deck-filters {
+  display: flex;
+  gap: 3px;
+}
+
+.deck-filter {
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.deck-filter:hover {
+  background: var(--surface-raised);
+  color: var(--text);
+}
+
+.deck-filter.is-active {
+  background: var(--accent-soft);
+  border-color: rgba(156, 126, 221, 0.25);
+  color: #d3c4ff;
+}
+
+.deck-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.deck-category-title {
+  grid-column: 1 / -1;
+  margin: 14px 0 0;
+  color: var(--text);
+  font-family: var(--font-title);
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.deck-category-title:first-child {
+  margin-top: 0;
+}
+
+.deck-card {
+  min-width: 0;
+  border: 1px solid rgba(33, 26, 9, 0.3);
+  border-radius: 12px;
+  background: var(--card-attack, #ef8b82);
+  color: var(--card-ink, #211a09);
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.deck-card--attack {
+  background: var(--card-attack, #ef8b82);
+}
+
+.deck-card--defend {
+  background: var(--card-defend, #f3cf62);
+}
+
+.deck-card--heal {
+  background: var(--card-heal, #94d5a0);
+}
+
+.deck-card:hover {
+  border-color: var(--card-ink, #211a09);
+  transform: translateY(-2px);
+}
+
+.deck-card.is-selected {
+  border-color: var(--card-ink, #211a09);
+  box-shadow: inset 0 0 0 1px var(--card-ink, #211a09);
+}
+
+.deck-card--attack.is-blocked {
+  background: var(--card-attack-disabled, #caa09b);
+}
+
+.deck-card--defend.is-blocked {
+  background: var(--card-defend-disabled, #d8bf77);
+}
+
+.deck-card--heal.is-blocked {
+  background: var(--card-heal-disabled, #abc4ae);
+}
+
+.deck-card.is-blocked:hover {
+  transform: none;
+}
+
+.deck-card-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 184px;
+  padding: 10px;
+  border: 0;
+  border-radius: 11px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+}
+
+.deck-card-button:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.deck-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  height: 22px;
+}
+
+.deck-card-check {
+  display: grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  color: var(--card-ink, #211a09);
+  font-size: 17px;
+}
+
+.is-selected .deck-card-check {
+  font-weight: 700;
+}
+
+.is-blocked .deck-card-check {
+  visibility: hidden;
+}
+
+.deck-card-icon {
+  width: 44px;
+  height: 44px;
+  margin: 4px 0 9px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35));
+}
+
+.is-blocked .deck-card-icon {
+  opacity: 0.65;
+}
+
+.deck-card-name {
+  display: block;
+  width: 100%;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.deck-card-type {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--card-ink, #211a09);
+  opacity: 0.8;
+}
+
+.deck-card-cost {
+  display: block;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #211a0914;
+  color: var(--card-ink);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.deck-card-note {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  color: var(--card-ink, #211a09);
+  font-size: 10px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.deck-card-note:empty {
+  display: none;
+}
+
+.deck-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 210px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+
+.deck-empty .btn {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.deck-sidebar {
+  position: sticky;
+  top: 96px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.deck-sidebar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.deck-budget {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.deck-budget input {
+  font-size: 16px;
+}
+
+.deck-budget-error {
+  margin: 0 0 10px;
+  color: var(--danger);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.deck-budget-error:empty {
+  display: none;
+}
+
+.deck-total {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--text);
+  font-size: 13px;
+}
+
+.deck-total-value {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.deck-total.is-over-budget .deck-total-value {
+  color: var(--danger);
+}
+
+.deck-count {
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.deck-selected-list {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.deck-selected-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  min-height: 34px;
+  padding: 2px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.deck-selected-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.deck-selected-copy {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.deck-remove {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.deck-remove:hover {
+  color: var(--danger);
+  background: var(--surface-raised);
+}
+
+.deck-selected-empty {
+  color: var(--muted);
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.deck-empty-slot-symbol {
+  width: 22px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.deck-requirements {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 13px;
+}
+
+.deck-requirement {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.deck-requirement.is-met {
+  color: var(--green);
+}
+
+.deck-status {
+  min-height: 18px;
+  margin: 9px 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.deck-status--success {
+  color: var(--green);
+}
+
+.deck-status--error {
+  color: var(--danger);
+}
+
+.deck-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deck-apply {
+  min-width: 0;
+  flex: 1;
+  min-height: 39px;
+  font-size: 13px !important;
+}
+
+.deck-clear {
+  min-height: 39px;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+  font-size: 11px !important;
+}
+
+.deck-card-button:focus-visible {
+  outline: 2px solid var(--card-ink, #211a09);
+  outline-offset: -5px;
+}
+
+.deck-remove:focus-visible,
+.deck-filter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.deck-builds {
+  margin-top: 28px;
+  padding: 20px;
+}
+
+.deck-builds-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.deck-builds h2 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.deck-build-count {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.deck-save-form {
+  display: flex;
+  gap: 10px;
+  max-width: 470px;
+}
+
+.deck-save-form input {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.deck-save-button {
+  flex-shrink: 0;
+}
+
+.deck-build-status {
+  margin: 10px 0 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.deck-build-status--error {
+  color: var(--danger);
+}
+
+.deck-build-status--success {
+  color: var(--green);
+}
+
+.deck-build-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.deck-build {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-raised);
+}
+
+.deck-build-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.deck-build-name {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+
+.deck-build-delete {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--muted);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.deck-build-delete:hover {
+  background: #ffffff09;
+  color: var(--danger);
+}
+
+.deck-build-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.deck-build-total {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.deck-build-type {
+  padding: 3px 7px;
+  border-radius: 4px;
+  color: var(--card-ink);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.deck-build-type--attack {
+  background: var(--card-attack);
+}
+
+.deck-build-type--defend {
+  background: var(--card-defend);
+}
+
+.deck-build-type--heal {
+  background: var(--card-heal);
+}
+
+.deck-build-cards {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  flex: 1;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.deck-build-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.deck-build-card--attack {
+  color: var(--card-attack);
+}
+
+.deck-build-card--defend {
+  color: var(--card-defend);
+}
+
+.deck-build-card--heal {
+  color: var(--card-heal);
+}
+
+.deck-build-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.deck-build-load {
+  width: 100%;
+  min-height: 39px;
+}
+
+.deck-build-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 12px 0 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 1120px) {
+  .deck-layout {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 18px;
+  }
+
+  .deck-card-grid {
+    gap: 9px;
+  }
+
+  .deck-card-button {
+    padding: 9px 7px;
+  }
+
+  .deck-card-name {
+    font-size: 12px;
+  }
+
+  .deck-card-type {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 960px) {
+  .deck-build-grid {
+    gap: 10px;
+  }
+
+  .deck-build {
+    padding: 12px;
+  }
+
+  .deck-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .deck-card-name {
+    font-size: 12px;
+  }
+
+  .deck-card-type {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .deck-build-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .deck-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .deck-sidebar {
+    position: static;
+    order: -1;
+    padding: 15px;
+  }
+
+  .deck-selected-list {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+    margin-bottom: 12px;
+  }
+
+  .deck-selected-row {
+    min-height: 34px;
+    gap: 7px;
+  }
+
+  .deck-selected-copy {
+    font-size: 11px;
+  }
+
+  .deck-requirements {
+    gap: 14px;
+  }
+
+  .deck-status {
+    min-height: 0;
+  }
+
+  .deck-actions .deck-apply {
+    max-width: 210px;
+  }
+
+  .deck-toolbar {
+    gap: 10px;
+  }
+
+  .deck-search {
+    flex-basis: 100%;
+  }
+
+  .deck-filters {
+    gap: 5px;
+  }
+
+  .deck-filter {
+    padding: 9px 15px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  .deck-builds {
+    margin-top: 22px;
+    padding: 16px;
+  }
+
+  .deck-builds h2 {
+    font-size: 22px;
+  }
+
+  .deck-save-form {
+    gap: 8px;
+  }
+
+  .deck-save-button {
+    padding-inline: 12px;
+  }
+
+  .deck-heading {
+    margin-bottom: 18px;
+  }
+
+  .deck-heading .section-heading {
+    font-size: 29px;
+  }
+
+  .deck-intro {
+    font-size: 12px;
+  }
+
+  .deck-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .deck-card-button {
+    min-height: 157px;
+    padding: 10px;
+  }
+
+  .deck-card-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .deck-card-name {
+    font-size: 12px;
+  }
+
+  .deck-card-type {
+    font-size: 10px;
+  }
+
+  .deck-card-note {
+    font-size: 10px;
+  }
+
+  .deck-selected-list {
+    gap: 4px 10px;
+  }
+
+  .deck-selected-row {
+    gap: 5px;
+    min-height: 36px;
+  }
+
+  .deck-selected-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .deck-selected-copy {
+    font-size: 11px;
+  }
+
+  .deck-selected-row .deck-remove {
+    width: 24px;
+    height: 29px;
+  }
+
+  .deck-requirement {
+    font-size: 11px;
+  }
+
+  .deck-actions .deck-apply {
+    max-width: none;
+  }
+
+  .deck-clear {
+    font-size: 12px !important;
+  }
+
+  .deck-filter {
+    padding: 8px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deck-card {
+    transition: none;
+  }
+
+  .deck-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,22 @@
+PIXEL FANTASY PORTRAITS PACK - LICENSE
+=======================================
+
+Copyright (c) 2026. All rights reserved by the pack creator.
+
+PERMITTED
+---------
+- Free to use in commercial and non-commercial games and projects.
+- You may modify, resize, recolor, and adapt the portraits for your game.
+
+REQUIRED
+--------
+- Credit the pack creator in your game's credits
+  (e.g. "Portraits: Pixel Fantasy Portraits Pack by Laphkal").
+
+NOT PERMITTED
+-------------
+- Do NOT redistribute, resell, or re-upload the pack itself (in whole or in
+  part) as a standalone asset pack, on any marketplace or website.
+- Do NOT claim the portraits as your own work.
+
+The pack owner may change these terms at any time for future versions.

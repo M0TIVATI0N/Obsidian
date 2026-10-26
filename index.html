@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101014" />
+    <meta
+      name="description"
+      content="Obsidian is a fantasy card game. Build your deck, create a hero, and challenge the guardians of the rift."
+    />
+    <title>Obsidian — Card Chronicles</title>
+    <link rel="icon" href="assets/icons/amulet_moon.png" type="image/png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/battle.css" />
+    <link rel="stylesheet" href="css/arena-scene.css" />
+    <link rel="stylesheet" href="css/deck.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <script src="js/app.js" defer></script>
+    <script src="js/battle.js" defer></script>
+    <script src="js/deck.js" defer></script>
+    <script src="js/hero.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to game</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#battle" aria-label="Obsidian — Arena">
+          <img
+            class="brand-mark"
+            src="assets/ui/winged-sword.png"
+            alt=""
+            width="48"
+            height="48"
+          />
+          <span
+            ><strong>OBSIDIAN</strong
+            ><span class="brand-caption">CARD CHRONICLES</span></span
+          >
+        </a>
+        <nav class="main-nav" aria-label="Game sections" role="tablist">
+          <button
+            class="nav-tab is-active"
+            id="tab-battle"
+            role="tab"
+            aria-controls="battle-panel"
+            aria-selected="true"
+            data-tab="battle"
+          >
+            <span class="nav-symbol" aria-hidden="true">Ⅰ</span> Arena
+          </button>
+          <button
+            class="nav-tab"
+            id="tab-deck"
+            role="tab"
+            aria-controls="deck-panel"
+            aria-selected="false"
+            tabindex="-1"
+            data-tab="deck"
+          >
+            <span class="nav-symbol" aria-hidden="true">Ⅱ</span> Deck
+          </button>
+          <button
+            class="nav-tab"
+            id="tab-hero"
+            role="tab"
+            aria-controls="hero-panel"
+            aria-selected="false"
+            tabindex="-1"
+            data-tab="hero"
+          >
+            <span class="nav-symbol" aria-hidden="true">Ⅲ</span> Hero
+          </button>
+        </nav>
+        <div class="header-right">
+          <span class="wins-counter" title="Battle wins"
+            ><span class="wins-diamond" aria-hidden="true">◇</span
+            ><strong id="header-wins">0</strong><span>wins</span></span
+          >
+          <button
+            class="profile-shortcut"
+            id="profile-shortcut"
+            aria-label="Open your hero"
+          >
+            <img
+              id="header-portrait"
+              src="assets/portraits/knight.png"
+              alt=""
+              width="36"
+              height="36"
+            /><span id="header-name">Eirin</span
+            ><span class="profile-arrow" aria-hidden="true">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <section
+          id="battle-panel"
+          class="game-panel"
+          role="tabpanel"
+          aria-labelledby="tab-battle"
+        ></section>
+        <section
+          id="deck-panel"
+          class="game-panel"
+          role="tabpanel"
+          aria-labelledby="tab-deck"
+          hidden
+        ></section>
+        <section
+          id="hero-panel"
+          class="game-panel"
+          role="tabpanel"
+          aria-labelledby="tab-hero"
+          hidden
+        ></section>
+        <noscript
+          ><p class="noscript">Enable JavaScript in your browser to play.</p></noscript
+        >
+      </main>
+
+      <footer class="site-footer">
+        <span class="footer-brand">OBSIDIAN <span>·</span> VOL. 01</span>
+      </footer>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <dialog class="game-dialog" id="help-dialog" aria-labelledby="help-title">
+      <button class="dialog-close" data-close-dialog aria-label="Close rules">×</button>
+      <p class="eyebrow">TRAVELER’S CODEX</p>
+      <h2 id="help-title">Your First Battle</h2>
+      <p class="dialog-lead">
+        Survive the rift by knowing when to attack, defend, or heal.
+      </p>
+      <div class="rules-list">
+        <article>
+          <span class="rule-number">01</span>
+          <div>
+            <h3>Choose an Action</h3>
+            <p data-rule="battle-attack"></p>
+          </div>
+        </article>
+        <article>
+          <span class="rule-number">02</span>
+          <div>
+            <h3>Protect Your Health</h3>
+            <p data-rule="battle-survival"></p>
+          </div>
+        </article>
+        <article>
+          <span class="rule-number">03</span>
+          <div>
+            <h3>Build Your Deck</h3>
+            <p data-rule="deck"></p>
+          </div>
+        </article>
+        <article>
+          <span class="rule-number">04</span>
+          <div>
+            <h3>Create Your Hero</h3>
+            <p>
+              Choose a name and class, then assign exactly 20 skill points. Select “Enter
+              Arena” to start a battle with your hero. If you return to an ongoing battle
+              through the Arena tab, select “Update Battle” in the notice above the arena
+              to apply your changes. All classes share the same health and battle rules.
+            </p>
+          </div>
+        </article>
+      </div>
+      <p class="keyboard-hint">
+        Keys <kbd>1</kbd> attack <kbd>2</kbd> defend <kbd>3</kbd> heal ·
+        <kbd>Tab</kbd> navigate · <kbd>Esc</kbd> close window
+      </p>
+      <button class="btn btn-primary dialog-start" data-close-dialog>
+        Ready to Battle <span aria-hidden="true">→</span>
+      </button>
+    </dialog>
+  </body>
+</html>

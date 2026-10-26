@@ -1,0 +1,21 @@
+EazyD Fantasy RPG Item Icon Pack — License
+
+Copyright (c) 2026 EazyD Studio. All rights reserved.
+
+GRANT OF LICENSE
+You may use these assets in personal and commercial game and software projects,
+including games sold on storefronts such as Steam, itch.io, mobile app stores,
+and similar platforms.
+
+RESTRICTIONS
+- You may NOT resell, redistribute, sublicense, or share these assets (or
+  derivative packs containing these assets) as standalone files or asset packs.
+- You may NOT claim authorship of the original artwork.
+- You may modify the icons for use within your project.
+
+ATTRIBUTION
+Attribution is appreciated but not required.
+
+THE ASSETS ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.
+
+Licensor: EazyD Studio
